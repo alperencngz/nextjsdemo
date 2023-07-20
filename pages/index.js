@@ -27,30 +27,30 @@ function HomePage(props) {
 
 }
 
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
 
-  const req = context.req;
-  const res = context.res;
-  // fetch data from an API
-
-  // This time we don't need revalidate because we render the props with every request
-
-  return {
-    props: {
-      meetups: DUMMY_MEETUPS,
-    },
-  };
-}
-
-// export async function getStaticProps() {
+//   const req = context.req;
+//   const res = context.res;
 //   // fetch data from an API
+
+//   // This time we don't need revalidate because we render the props with every request
 
 //   return {
 //     props: {
 //       meetups: DUMMY_MEETUPS,
 //     },
-//     revalidate: 10,
 //   };
 // }
+
+export async function getStaticProps() {
+  // fetch data from an API
+
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+    revalidate: 10,
+  };
+}
 
 export default HomePage;
